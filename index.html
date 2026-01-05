@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的大模型学习路线</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">我的大模型学习路线</h1>
+        
+        <div class="roadmap-container">
+            <!-- 初级目标 -->
+            <div class="node level-1" data-tooltip="学习如何调用大模型API，包括OpenAI API、Claude API等，掌握基本的prompt工程技巧。">
+                <div class="node-content">
+                    <span class="node-label">1. 初级目标</span>
+                    <span class="node-desc">会调用API</span>
+                    <div class="progress-section">
+                        <div class="progress-container">
+                            <input type="range" class="progress-slider" id="progress-1" min="0" max="100" value="0">
+                            <span class="progress-value" id="progress-value-1">0%</span>
+                        </div>
+                        <textarea class="note-input" id="note-1" placeholder="添加备注..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 中级目标 -->
+            <div class="node level-1" data-tooltip="深入理解模型训练流程，掌握LoRA等参数高效微调技术，能够针对具体业务场景进行模型微调。">
+                <div class="node-content">
+                    <span class="node-label">2. 中级目标</span>
+                    <span class="node-desc">理解模型的训练和优化，会用LoRA去做一些指令微调，然后去用在业务领域</span>
+                    <div class="progress-section">
+                        <div class="progress-container">
+                            <input type="range" class="progress-slider" id="progress-2" min="0" max="100" value="0">
+                            <span class="progress-value" id="progress-value-2">0%</span>
+                        </div>
+                        <textarea class="note-input" id="note-2" placeholder="添加备注..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 高级目标 -->
+            <div class="node level-1" data-tooltip="具备独立优化和部署模型的能力，能够开发完整的对话系统和智能Agent系统，解决实际业务问题。">
+                <div class="node-content">
+                    <span class="node-label">3. 高级目标</span>
+                    <span class="node-desc">需要有独立模型的优化和部署能力，会去开发一个对话系统，开发一个agent</span>
+                    <div class="progress-section">
+                        <div class="progress-container">
+                            <input type="range" class="progress-slider" id="progress-3" min="0" max="100" value="0">
+                            <span class="progress-value" id="progress-value-3">0%</span>
+                        </div>
+                        <textarea class="note-input" id="note-3" placeholder="添加备注..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 理论打底 -->
+            <div class="node level-2" data-tooltip="系统回顾深度学习基础知识（反向传播、梯度下降等），学习语言模型从RNN到Transformer的演进历程，理解注意力机制的原理。">
+                <div class="node-content">
+                    <span class="node-label">4. 理论打底</span>
+                    <span class="node-desc">需要回顾深度学习的知识，语言模型的整个演进</span>
+                    <div class="progress-section">
+                        <div class="progress-container">
+                            <input type="range" class="progress-slider" id="progress-4" min="0" max="100" value="0">
+                            <span class="progress-value" id="progress-value-4">0%</span>
+                        </div>
+                        <textarea class="note-input" id="note-4" placeholder="添加备注..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 模型认知 -->
+            <div class="node level-2" data-tooltip="深入理解BERT的双向编码器结构、GPT的自回归生成机制、LLaMA的优化设计，掌握它们之间的架构差异和各自的设计理念。">
+                <div class="node-content">
+                    <span class="node-label">5. 模型认知</span>
+                    <span class="node-desc">搞懂BERT、GPT、LLaMA这些模型它本身的一个结构差异，以及设计理念</span>
+                    <div class="progress-section">
+                        <div class="progress-container">
+                            <input type="range" class="progress-slider" id="progress-5" min="0" max="100" value="0">
+                            <span class="progress-value" id="progress-value-5">0%</span>
+                        </div>
+                        <textarea class="note-input" id="note-5" placeholder="添加备注..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 训练和对齐 -->
+            <div class="node level-2" data-tooltip="数据准备：学习如何从网络、数据库等渠道采集数据，掌握数据清洗、去重、格式化的方法，学会构造高质量的指令数据集。训练过程：掌握学习率调度策略（warmup、cosine decay等）、优化器选择（AdamW、Lion等）、混合精度训练（FP16/BF16）、梯度累积技术。微调阶段：学习LoRA、QLoRA、Prompt Tuning等参数高效微调方法。对齐技术：掌握RLHF（强化学习人类反馈）、DPO（直接偏好优化）等对齐方法。">
+                <div class="node-content">
+                    <span class="node-label">6. 训练和对齐</span>
+                    <span class="node-desc">
+                        <div class="sub-items">
+                            <div>数据准备：如何采集数据、如何清洗去重数据、如何构造结构化数据</div>
+                            <div>训练过程：学习率调度、优化器选择、混合精度训练、梯度累积</div>
+                            <div>微调阶段：LoRA、QLoRA、Prompt Tuning</div>
+                            <div>对齐：RLHF、DPO、直接偏好优化</div>
+                        </div>
+                    </span>
+                    <div class="progress-section">
+                        <div class="progress-container">
+                            <input type="range" class="progress-slider" id="progress-6" min="0" max="100" value="0">
+                            <span class="progress-value" id="progress-value-6">0%</span>
+                        </div>
+                        <textarea class="note-input" id="note-6" placeholder="添加备注..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 工程化 -->
+            <div class="node level-2" data-tooltip="模型压缩：学习量化技术（INT8、INT4）、知识蒸馏、模型剪枝等方法，在保持性能的同时减小模型体积。分布式训练：掌握数据并行、模型并行、流水线并行、ZeRO优化等分布式训练技术，提高训练效率。推理部署：学习KV缓存优化、动态batch调整、服务化封装（FastAPI、gRPC等）、容灾体系构建。工程能力决定了模型是否能够真正达到上限标准。">
+                <div class="node-content">
+                    <span class="node-label">7. 工程化</span>
+                    <span class="node-desc">
+                        <div class="sub-items">
+                            <div>模型压缩：量化、蒸馏、剪枝</div>
+                            <div>分布式训练：数据并行、模型并行、流水线并行、ZeRO技术优化</div>
+                            <div>推理部署：KV缓存优化、动态batch调整、服务化封装、容灾体系</div>
+                        </div>
+                    </span>
+                    <div class="progress-section">
+                        <div class="progress-container">
+                            <input type="range" class="progress-slider" id="progress-7" min="0" max="100" value="0">
+                            <span class="progress-value" id="progress-value-7">0%</span>
+                        </div>
+                        <textarea class="note-input" id="note-7" placeholder="添加备注..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 聚焦前沿的应用 -->
+            <div class="node level-2" data-tooltip="RAG系统：结合向量数据库（如Pinecone、Weaviate、Milvus），实现知识增强的对话系统，掌握文档检索、向量相似度计算、上下文注入等技术。Agent系统：学习如何构建智能Agent，包括工具调用、任务规划、多轮对话管理等能力。多模态能力：拓展到图像、音频等多模态输入输出，学习视觉语言模型（VLM）的应用。">
+                <div class="node-content">
+                    <span class="node-label">8. 聚焦前沿的应用</span>
+                    <span class="node-desc">
+                        <div class="sub-items">
+                            <div>构建RAG系统：结合向量数据库，实现知识增强的对话系统</div>
+                            <div>打造Agent系统</div>
+                            <div>拓展多模态能力</div>
+                        </div>
+                    </span>
+                    <div class="progress-section">
+                        <div class="progress-container">
+                            <input type="range" class="progress-slider" id="progress-8" min="0" max="100" value="0">
+                            <span class="progress-value" id="progress-value-8">0%</span>
+                        </div>
+                        <textarea class="note-input" id="note-8" placeholder="添加备注..."></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tooltip" id="tooltip"></div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+

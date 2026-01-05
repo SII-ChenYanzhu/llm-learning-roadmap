@@ -1,0 +1,350 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.title {
+    text-align: center;
+    color: #fff;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-weight: 700;
+}
+
+.roadmap-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    position: relative;
+    padding: 20px 0;
+}
+
+/* 连接线 */
+.roadmap-container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, 
+        rgba(255, 255, 255, 0.5) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0.1) 100%);
+    transform: translateX(-50%);
+    z-index: 0;
+    border-radius: 2px;
+}
+
+/* 节点之间的连接点 */
+.node::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: -15px;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border: 3px solid #667eea;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.node:first-child::after {
+    display: none;
+}
+
+.node {
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 800px;
+}
+
+.node-content {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    border: 2px solid transparent;
+    backdrop-filter: blur(10px);
+}
+
+.node-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    border-color: #667eea;
+}
+
+.node-label {
+    font-size: 1.3em;
+    font-weight: 700;
+    color: #667eea;
+    min-width: 150px;
+}
+
+.node-desc {
+    flex: 1;
+    font-size: 1em;
+    color: #555;
+    line-height: 1.6;
+}
+
+.sub-items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sub-items div {
+    padding: 5px 0;
+    border-left: 3px solid #667eea;
+    padding-left: 10px;
+    font-size: 0.95em;
+}
+
+/* 进度条和备注区域 */
+.progress-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 200px;
+    flex-shrink: 0;
+}
+
+.progress-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.progress-slider {
+    flex: 1;
+    height: 8px;
+    border-radius: 4px;
+    background: #e0e0e0;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.progress-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #667eea;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
+}
+
+.progress-slider::-webkit-slider-thumb:hover {
+    background: #764ba2;
+    transform: scale(1.1);
+    box-shadow: 0 3px 8px rgba(102, 126, 234, 0.6);
+}
+
+.progress-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #667eea;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 6px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
+}
+
+.progress-slider::-moz-range-thumb:hover {
+    background: #764ba2;
+    transform: scale(1.1);
+    box-shadow: 0 3px 8px rgba(102, 126, 234, 0.6);
+}
+
+.progress-value {
+    min-width: 45px;
+    text-align: center;
+    font-weight: 600;
+    color: #667eea;
+    font-size: 0.9em;
+}
+
+.note-input {
+    width: 100%;
+    min-height: 60px;
+    padding: 8px 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 0.85em;
+    font-family: inherit;
+    resize: vertical;
+    transition: all 0.3s ease;
+    background: #fff;
+    color: #555;
+}
+
+.note-input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.note-input::placeholder {
+    color: #999;
+}
+
+/* 工具提示 */
+.tooltip {
+    position: fixed;
+    background: linear-gradient(135deg, rgba(30, 30, 30, 0.98) 0%, rgba(20, 20, 20, 0.98) 100%);
+    color: #fff;
+    padding: 20px 25px;
+    border-radius: 12px;
+    font-size: 0.9em;
+    line-height: 1.8;
+    max-width: 450px;
+    z-index: 1000;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transform: translateY(-5px);
+}
+
+.tooltip.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* 工具提示内容格式化 */
+.tooltip-content {
+    white-space: pre-line;
+    word-wrap: break-word;
+    line-height: 1.8;
+    color: #e0e0e0;
+}
+
+.tooltip-section {
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.tooltip-section:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.tooltip-title {
+    font-weight: 700;
+    color: #667eea;
+    margin-bottom: 10px;
+    font-size: 1.05em;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 2px rgba(102, 126, 234, 0.3);
+}
+
+.tooltip-text {
+    color: #e0e0e0;
+    line-height: 1.9;
+    word-spacing: 1px;
+    letter-spacing: 0.3px;
+    text-align: justify;
+}
+
+.tooltip-highlight {
+    color: #fff;
+    font-weight: 600;
+}
+
+.tooltip::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 8px solid transparent;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2em;
+    }
+    
+    .node-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .node-label {
+        min-width: auto;
+        margin-bottom: 10px;
+    }
+    
+    .progress-section {
+        width: 100%;
+        min-width: auto;
+    }
+    
+    .roadmap-container::before {
+        display: none;
+    }
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.node {
+    animation: fadeIn 0.6s ease forwards;
+}
+
+.node:nth-child(1) { animation-delay: 0.1s; }
+.node:nth-child(2) { animation-delay: 0.2s; }
+.node:nth-child(3) { animation-delay: 0.3s; }
+.node:nth-child(4) { animation-delay: 0.4s; }
+.node:nth-child(5) { animation-delay: 0.5s; }
+.node:nth-child(6) { animation-delay: 0.6s; }
+.node:nth-child(7) { animation-delay: 0.7s; }
+.node:nth-child(8) { animation-delay: 0.8s; }
+
