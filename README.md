@@ -50,11 +50,6 @@ http-server -p 8000
 - 安装 "Live Server" 扩展
 - 右键点击 `index.html` → 选择 "Open with Live Server"
 
-### 方法三：GitHub Pages（在线访问）
-
-1. 将代码推送到GitHub仓库
-2. 在仓库设置中启用GitHub Pages
-3. 访问 `https://你的用户名.github.io/仓库名`
 
 ## 使用方法
 
@@ -79,13 +74,6 @@ http-server -p 8000
 - HTML5
 - CSS3 (渐变、动画、响应式设计)
 - JavaScript (原生JS，无依赖)
-
-## 部署到GitHub Pages
-
-1. 将代码推送到GitHub仓库
-2. 在仓库设置中启用GitHub Pages
-3. 选择主分支作为源
-4. 访问 `https://你的用户名.github.io/仓库名` 即可查看网页
 
 ## 文件结构
 
